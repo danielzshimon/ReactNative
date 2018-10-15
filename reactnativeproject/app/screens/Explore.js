@@ -5,7 +5,7 @@ import {
   View
 } from 'react-native';
 
-export default class Boookcase extends Component {
+export default class Explore extends Component {
   render() {
     return (
       <View style={styles.container}>
