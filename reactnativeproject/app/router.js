@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import { Dimensions, Platform } from 'react-native';
 import { StackNavigator, TabNavigator } from 'react-navigation';
@@ -5,9 +6,10 @@ import { Icon } from 'react-native-elements';
 
 import Bookcase from './screens/Bookcase';
 import Explore from './screens/Explore';
-import AddBook from './screens/Add';
+import AddBook from './screens/AddBook';
 import List from './screens/List';
 import Profile from './screens/Profile';
+import EditBook from './screens/EditBook';
 
 let screen = Dimensions.get('window');
 
@@ -33,8 +35,8 @@ export const Tabs = TabNavigator({
       tabBarIcon: ({ tintColor }) => <Icon name="ios-add-circle-outline" type="ionicon" size={28} color={tintColor} />
     },
   },
-  'List': {
-    screen: ReadingListStack,
+  'Lists': {
+    screen: List,
     navigationOptions: {
       tabBarLabel: 'List',
       tabBarIcon: ({ tintColor }) => <Icon name="list" type="entypo" size={28} color={tintColor} />
@@ -49,9 +51,32 @@ export const Tabs = TabNavigator({
   },
 });
 
+export const BookcaseStack = StackNavigator({
+  Bookcase: {
+    screen: Bookcase,
+    navigationOptions: ({navigation}) => ({
+      header: null,
+    }),
+  },
+  EditBook: {
+    screen: EditBook,
+    navigationOptions: ({navigation}) => ({
+      header: null,
+      tabBarVisible: false,
+      gesturesEnabled: false
+    }),
+  },
+});
+
 export const createRootNavigator = () => {
   return StackNavigator(
     {
+      BookcaseStack: {
+        screen: BookcaseStack,
+        navigationOptions: {
+          gesturesEnabled: false
+        }
+      },
       Tabs: {
         screen: Tabs,
         navigationOptions: {
@@ -59,5 +84,9 @@ export const createRootNavigator = () => {
         }
       }
     },
+    {
+      headerMode: "none",
+      mode: "modal"
+    }
   );
 };
