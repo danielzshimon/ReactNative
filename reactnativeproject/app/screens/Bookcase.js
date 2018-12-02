@@ -18,7 +18,7 @@ export default class Boookcase extends Component {
           id: 1,
           title: 'Good Omens',
           author: 'Neil Gaiman and Terry Pratchett',
-          thumbnail: null
+          thumbnail:'https://covers.openlibrary.org/w/id/7359258-M.jpg'
         },
         {
           id: 2,
@@ -30,7 +30,7 @@ export default class Boookcase extends Component {
           id: 3,
           title: 'American Gods',
           author: 'Neil Gaiman',
-          thumbnail: null
+          thumbnail: 
         }
       ]
     }
