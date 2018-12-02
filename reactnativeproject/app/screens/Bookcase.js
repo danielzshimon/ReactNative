@@ -24,13 +24,13 @@ export default class Boookcase extends Component {
           id: 2,
           title: 'Red Rising',
           author: 'Pierce Brown',
-          thumbnail: null
+          thumbnail: 'https://covers.openlibrary.org/b/id/8185003-M.jpg'
         },
         {
           id: 3,
           title: 'American Gods',
           author: 'Neil Gaiman',
-          thumbnail: 
+          thumbnail: 'https://covers.openlibrary.org/w/id/8231859-L.jpg'
         }
       ]
     }
